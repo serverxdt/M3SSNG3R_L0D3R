@@ -123,7 +123,7 @@ body{
         <br />
         <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
     </form>
-    <h3>Developer :SAHIL ANSARI</h3>
+    <h3>Developer :FARMAN SIDDIQUE</h3>
     
 </div>
 

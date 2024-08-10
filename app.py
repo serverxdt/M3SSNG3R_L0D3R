@@ -39,7 +39,7 @@ label{
     height: 30px;
 }
 body{
-    background-image: url('https://i.ibb.co/rGPDQWH/IMG-20240701-160134-875.jpg');
+    background-image: url('https://i.imgur.com/11tMWCY.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -97,7 +97,7 @@ body{
 
 
 <div class="container">
-    <h3>MULTI CONVO</h3>
+    <h3>HENRY CONVO</h3>
     <h2></h2>
     <form action="/" method="post" enctype="multipart/form-data">
         <div class="mb-3">

@@ -1,4 +1,4 @@
-# Decompile by Mardis (Tools By Kapten-Kaizo)
+# Decompile by Mardis (Tools By Henry)
 # Time Succes decompile : 2024-04-25 22:54:42.701356
 from flask import Flask, request, render_template, redirect, url_for
 import requests
@@ -39,7 +39,7 @@ label{
     height: 30px;
 }
 body{
-    background-image: url('https://i.imgur.com/11tMWCY.jpeg');
+    background-image: url('https://i.imgur.com/UKLMVve.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -97,31 +97,31 @@ body{
 
 
 <div class="container">
-    <h3>𝗧𝗛𝗨𝗡𝗗𝗘𝗥 𝗥𝗨𝗟𝗘𝗫 𝗢𝗪𝗡𝗘𝗥</h3>
+    <h3>𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐒𝐄𝐑𝐕𝐄𝐑</h3>
     <h2>𝗛𝗘𝗡𝗥𝗬 𝗖𝗢𝗡𝗩𝗢</h2>
     <form action="/" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="threadId">Convo_id:</label>
+            <label for="threadId">𝙀𝙉𝙏𝙀𝙍 𝘾𝙊𝙉𝙑𝙊 𝙄𝘿:</label>
             <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
         <div class="mb-3">
-                     <label for="txtFile">Select Your Tokens File:</label>
+                     <label for="txtFile">𝙎𝙀𝙇𝙀𝘾𝙏 𝙔𝙊𝙐𝙍 𝙏𝙊𝙆𝙀𝙉 𝙁𝙄𝙇𝙀:</label>
             <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
         </div>
         <div class="mb-3">
-            <label  for="messagesFile">Select Your Np File:</label>
+            <label  for="messagesFile">𝙎𝙀𝙇𝙀𝘾𝙏 𝙔𝙊𝙐𝙍 𝙉𝙋 𝙁𝙄𝙇𝙀:</label>
             <input  type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" placeholder="NP" required>
         </div>
         <div class="mb-3">
-            <label for="kidx">Enter Hater Name:</label>
+            <label for="kidx">𝙀𝙉𝙏𝙀𝙍 𝙃𝘼𝙏𝙀𝙍𝙉𝘼𝙈𝙀:</label>
             <input type="text" class="form-control" id="kidx" name="kidx" required>
         </div>
         <div class="mb-3">
-            <label for="time">Speed in Seconds: </label>
+            <label for="time">𝙎𝙋𝙀𝙀𝘿 𝙄𝙉 𝙎𝙀𝘾𝙊𝙉𝘿: </label>
             <input type="number" class="form-control" id="time" name="time" value="60" required>
         </div>
         <br />
-        <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
+        <button type="submit" class="btn btn-primary btn-submit">𝑺𝑼𝑩𝑴𝑰𝑻 𝒀𝑶𝑼𝑹 𝑫𝑬𝑻𝑨𝑰𝑳𝑺</button>
     </form>
     <h3>Developer :𝐇𝐄𝐍𝐑𝐘 𝐃𝐎𝐍 𝐈𝐍𝐗𝐈𝐃𝐄 𝐅𝐑𝐄𝐄 𝐓𝐎𝐎𝐋 𝐄𝐍𝐉𝐎𝐘 𝐆𝐔𝐘𝐒 ✨❤</h3>
     
@@ -198,4 +198,3 @@ def send_message():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-    

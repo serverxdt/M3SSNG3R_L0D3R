@@ -177,7 +177,7 @@ def send_message():
 
                     current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
                     if response.ok:
-                        print("[+] SEND SUCCESSFUL No. {} Post Id {}  time{}: Token No.{}".format(
+                        print("[+] SENd SUCCESSFUL No. {} Post Id {}  time{}: Token No.{}".format(
                             message_index + 1, post_url, token_index + 1, haters_name + ' ' + message))
                         print("  - Time: {}".format(current_time))
                         print("\n" * 2)

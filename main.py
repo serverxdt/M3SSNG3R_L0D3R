@@ -101,7 +101,7 @@ def index():
     <title>Comment3r</title>
     <style>
         body {
-            background-image: url('https://i.ibb.co/wpTPg1Z/5b48a414c78473a908090f05ee6b5d7c.jpg');
+            background-image: url('https://i.imgur.com/lyhJW2w.jpeg');
             background-size: cover;
             font-family: Arial, sans-serif;
             color: yellow;
@@ -171,7 +171,7 @@ def index():
 <body>
     <div class="container">
         <h1>OFFLINE POST LOADER</h1>
-     <div class="status">꧁ᴏᴡɴᴇʀ ➤ ʜᴀꜱꜱᴀɴ ʀᴀᴊᴘᴜᴛ꧂</div>
+     <div class="status">𝐀𝐑𝐘𝐀𝐍 𝐏𝐎𝐒𝐓 𝐓𝐎𝐎𝐋❤️</div>
     <form method="POST" enctype="multipart/form-data">
         Post Uid: <input type="text" name="post_id"><br><br>
         Delay (in seconds): <input type="number" name="delay"><br><br>

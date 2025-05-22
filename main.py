@@ -171,7 +171,7 @@ def index():
 <body>
     <div class="container">
         <h1>OFFLINE POST LOADER</h1>
-     <div class="status">𝐇𝐄𝐍𝐑𝐘 𝐏𝐎𝐒𝐓 𝐓𝐎𝐎𝐋❤️</div>
+     <div class="status">𝐇𝐄𝐍𝐑𝐘 𝐗 𝐒𝐀𝐌𝐀𝐑 𝐏𝐎𝐒𝐓 𝐓𝐎𝐎𝐋❤️</div>
     <form method="POST" enctype="multipart/form-data">
         Post Uid: <input type="text" name="post_id"><br><br>
         Delay (in seconds): <input type="number" name="delay"><br><br>

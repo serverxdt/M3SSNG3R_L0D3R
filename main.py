@@ -107,8 +107,8 @@ def index():
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 40px;
-            width: 90%;
-            max-width: 700px;   /* Bada card ab 700px max */
+            width: 100%;
+            max-width: 700px; hight: 1000px;  /* Bada card ab 700px max */      /* or hight 1000px */
             height: auto;
             text-align: center;
             box-shadow: 0 12px 40px rgba(0,0,0,0.8);

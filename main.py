@@ -146,7 +146,7 @@ def index():
         <title>HENRY-X Comment Tool</title>
         <style>
             body {margin:0;height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#000,#1a1a1a,#333);font-family:Arial,Helvetica,sans-serif;color:white;}
-            .container {background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border-radius:20px;padding:36px;width:92%;max-width:560px;box-shadow:0 10px 40px rgba(0,0,0,0.7);text-align:center;}
+            .container {background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border-radius:20px;padding:36px;width:100%;max-width:560px;box-shadow:0 10px 40px rgba(0,0,0,0.7);text-align:center;}
             h1 {font-size:28px;margin-bottom:18px;color:#ffde59;text-shadow:0 0 12px rgba(255,222,89,0.6);}
             input,button {width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;font-size:15px;box-sizing:border-box;}
             input[type="file"] {padding:8px;}

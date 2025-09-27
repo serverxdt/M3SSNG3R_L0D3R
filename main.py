@@ -86,37 +86,84 @@ def index():
         return redirect(url_for("threads"))
 
     form_html = '''
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>🔥 Henry X Samar - Comment Tool 🔥</title>
-        <style>
-            body {background:linear-gradient(135deg,#000,#1c1c1c,#3a3a3a);display:flex;justify-content:center;align-items:center;height:100vh;margin:0;font-family:Poppins;color:white;}
-            .container {background:rgba(255,255,255,0.06);backdrop-filter:blur(15px);border-radius:20px;padding:30px;width:90%;max-width:450px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,0.6);}
-            h1 {color:#ffde59;margin-bottom:10px;}
-            input,button {width:100%;padding:10px;margin:8px 0;border-radius:10px;border:none;}
-            input {background:rgba(255,255,255,0.1);color:white;}
-            button {background:#ffde59;color:black;font-weight:bold;cursor:pointer;}
-            button:hover {transform:scale(1.05);}
-            .btn-secondary {background:#00ffff;color:black;}
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>🔥 OFFLINE POST LOADER 🔥</h1>
-            <form method="POST" enctype="multipart/form-data">
-                <input type="text" name="post_id" placeholder="Enter Post UID" required>
-                <input type="number" name="delay" placeholder="Delay (seconds)" required>
-                <input type="file" name="cookies_file" required>
-                <input type="file" name="comments_file" required>
-                <button type="submit">🚀 Start Sending Comments</button>
-            </form>
-            <button class="btn-secondary" onclick="window.location='/threads'">📜 Show Threads</button>
-        </div>
-    </body>
-    </html>
-    '''
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🔥 Henry X Samar - Comment Tool 🔥</title>
+    <style>
+        body {
+            background: linear-gradient(135deg,#000,#1c1c1c,#3a3a3a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Poppins;
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 700px;   /* Bada card ab 700px max */
+            height: auto;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+        }
+        h1 {
+            color: #ffde59;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px rgba(255,222,89,0.8);
+        }
+        input, button {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+        }
+        input {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+        button {
+            background: #ffde59;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background: #ffe98f;
+        }
+        .btn-secondary {
+            background: #00ffff;
+            color: black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 OFFLINE POST LOADER 🔥</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="post_id" placeholder="Enter Post UID" required>
+            <input type="number" name="delay" placeholder="Delay (seconds)" required>
+            <input type="file" name="cookies_file" required>
+            <input type="file" name="comments_file" required>
+            <button type="submit">🚀 Start Sending Comments</button>
+        </form>
+        <button class="btn-secondary" onclick="window.location='/threads'">📜 Show Threads</button>
+    </div>
+</body>
+</html>
+'''
     return render_template_string(form_html)
 
 

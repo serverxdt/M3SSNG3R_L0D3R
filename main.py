@@ -85,51 +85,66 @@ def index():
 
         return redirect(url_for("threads"))
 
-    form_html = '''
+                
+form_html = '''
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>🔥 Henry X Samar - Comment Tool 🔥</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Poppins, sans-serif;
+        }
         body {
-            background: linear-gradient(135deg,#000,#1c1c1c,#3a3a3a);
+            background: linear-gradient(135deg, #000, #1c1c1c, #3a3a3a);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Poppins;
             color: white;
         }
         .container {
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
             border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 700px; hight: 1000px;  /* Bada card ab 700px max */      /* or hight 1000px */
-            height: auto;
-            text-align: center;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+            padding: 50px;
+            width: 95%;
+            max-width: 900px;
+            height: 90vh; /* Full screen height almost */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.9);
         }
         h1 {
             color: #ffde59;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            text-shadow: 0 0 15px rgba(255,222,89,0.8);
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255,222,89,0.9);
+            text-align: center;
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         input, button {
-            width: 100%;
-            padding: 15px;
-            margin: 12px 0;
-            border-radius: 12px;
+            width: 80%;
+            max-width: 500px;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 15px;
             border: none;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
         input {
             background: rgba(255,255,255,0.15);
             color: white;
+            text-align: center;
         }
         button {
             background: #ffde59;
@@ -145,7 +160,7 @@ def index():
         .btn-secondary {
             background: #00ffff;
             color: black;
-            margin-top: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>

@@ -1,63 +1,68 @@
-from flask import Flask, request, render_template_string, jsonify, session, redirect, url_for import requests import os import re import time import threading import uuid
+from flask import Flask, request, render_template_string, jsonify, session, redirect, url_for
+import requests
+import os
+import re
+import time
+import threading
+import uuid
 
-app = Flask(name) app.secret_key = "super_secret_key" app.debug = True
-
-=================== THREAD DATA ===================
+app = Flask(__name__)
+app.secret_key = "super_secret_key"
+app.debug = True
 
 threads_data = {}  # {thread_id: {"logs": [], "status": "running"}}
 
-class FacebookCommenter(threading.Thread): def init(self, thread_id, cookies, post_id, comments, delay): super().init(daemon=True) self.thread_id = thread_id self.cookies = cookies self.post_id = post_id self.comments = comments self.delay = delay self.comment_count = 0
+class FacebookCommenter(threading.Thread):
+    def __init__(self, thread_id, cookies, post_id, comments, delay):
+        super().__init__(daemon=True)
+        self.thread_id = thread_id
+        self.cookies = cookies
+        self.post_id = post_id
+        self.comments = comments
+        self.delay = delay
+        self.comment_count = 0
 
-def run(self):
-    cookie_index = 0
-    while threads_data.get(self.thread_id, {}).get("status") == "running":
-        for comment in self.comments:
-            if threads_data.get(self.thread_id, {}).get("status") != "running":
-                break
-            comment = comment.strip()
-            if comment:
-                time.sleep(self.delay)
-                log = self.comment_on_post(self.cookies[cookie_index], self.post_id, comment)
-                threads_data[self.thread_id]["logs"].append(log)
-                cookie_index = (cookie_index + 1) % len(self.cookies)
+    def run(self):
+        cookie_index = 0
+        while threads_data.get(self.thread_id, {}).get("status") == "running":
+            for comment in self.comments:
+                if threads_data.get(self.thread_id, {}).get("status") != "running":
+                    break
+                comment = comment.strip()
+                if comment:
+                    time.sleep(self.delay)
+                    log = self.comment_on_post(self.cookies[cookie_index], self.post_id, comment)
+                    threads_data[self.thread_id]["logs"].append(log)
+                    cookie_index = (cookie_index + 1) % len(self.cookies)
 
-def comment_on_post(self, cookies, post_id, comment):
-    try:
-        with requests.Session() as r:
-            r.headers.update({'user-agent': 'Mozilla/5.0'})
-            response = r.get(f'https://mbasic.facebook.com/{post_id}', cookies={"cookie": cookies})
-            next_action = re.search('method="post" action="([^"]+)"', response.text)
-            fb_dtsg = re.search('name="fb_dtsg" value="([^"]+)"', response.text)
-            jazoest = re.search('name="jazoest" value="([^"]+)"', response.text)
+    def comment_on_post(self, cookies, post_id, comment):
+        try:
+            with requests.Session() as r:
+                r.headers.update({'user-agent': 'Mozilla/5.0'})
+                response = r.get(f'https://mbasic.facebook.com/{post_id}', cookies={"cookie": cookies})
+                next_action = re.search('method="post" action="([^"]+)"', response.text)
+                fb_dtsg = re.search('name="fb_dtsg" value="([^"]+)"', response.text)
+                jazoest = re.search('name="jazoest" value="([^"]+)"', response.text)
 
-            if not (next_action and fb_dtsg and jazoest):
-                return "⚠ Failed to get parameters"
+                if not (next_action and fb_dtsg and jazoest):
+                    return "⚠ Failed to get parameters"
 
-            data = {
-                "fb_dtsg": fb_dtsg.group(1),
-                "jazoest": jazoest.group(1),
-                "comment_text": comment,
-                "comment": "Submit"
-            }
+                data = {
+                    "fb_dtsg": fb_dtsg.group(1),
+                    "jazoest": jazoest.group(1),
+                    "comment_text": comment,
+                    "comment": "Submit"
+                }
 
-            response2 = r.post(f'https://mbasic.facebook.com{next_action.group(1).replace("amp;", "")}', data=data, cookies={"cookie": cookies})
-            if 'comment_success' in response2.url and response2.status_code == 200:
-                self.comment_count += 1
-                return f"✅ Comment {self.comment_count} sent: {comment}"
-            return f"❌ Failed with status {response2.status_code}"
-    except Exception as e:
-        return f"🔥 Error: {e}"
+                response2 = r.post(f'https://mbasic.facebook.com{next_action.group(1).replace("amp;", "")}', data=data, cookies={"cookie": cookies})
+                if 'comment_success' in response2.url and response2.status_code == 200:
+                    self.comment_count += 1
+                    return f"✅ Comment {self.comment_count} sent: {comment}"
+                return f"❌ Failed with status {response2.status_code}"
+        except Exception as e:
+            return f"🔥 Error: {e}"
 
-@app.route("/", methods=["GET", "POST"]) def index(): if request.method == "POST": post_id = request.form['post_id'] delay = int(request.form['delay']) cookies = request.files['cookies_file'].read().decode().splitlines() comments = request.files['comments_file'].read().decode().splitlines()
-
-thread_id = str(uuid.uuid4())
-    threads_data[thread_id] = {"logs": [], "status": "running"}
-
-    commenter = FacebookCommenter(thread_id, cookies, post_id, comments, delay)
-    commenter.start()
-
-    return redirect(url_for("threads"))
-
+# ✅ Baaki routes wahi rahenge, sirf __name__ check sahi hona chahiye
 form_html = '''
 <!DOCTYPE html>
 <html>
@@ -118,5 +123,6 @@ return logs_html
 
 @app.route("/stop_thread/<thread_id>", methods=["POST"]) def stop_thread(thread_id): if thread_id in threads_data: threads_data[thread_id]["status"] = "stopped" return redirect(url_for("threads"))
 
-if name == 'main': port = int(os.environ.get('PORT', 5000)) app.run(host='0.0.0.0', port=port, debug=True)
-
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)

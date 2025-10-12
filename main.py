@@ -97,7 +97,7 @@ body{
   color:white;
 }
 .container{
-  width:420px;
+  width:100%;
   background:rgba(255,255,255,0.1);
   backdrop-filter:blur(15px);
   border-radius:20px;
